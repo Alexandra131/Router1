@@ -1,0 +1,18 @@
+    Acest proiect presupune simularea unui router de retea, folosind protocoale uzuale. 
+        În primul rând, programul începe prin inițializarea și pregătirea sa pentru a fi gata să primească și să trimită pachete. 
+Se creează tabele pentru rutare și pentru protocolul ARP și se citește o tabelă de rutare dintr-un fișier specificat ca argument la rulare.
+
+Odată ce totul este pregătit, programul intră în bucla principală, unde așteaptă să primească pachete de la oricare dintre interfețele rețelei.
+Atunci când un pachet este primit, programul îl analizează pentru a determina natura sa și cum ar trebui tratat. 
+    Dacă este un pachet ARP, acesta poate fi fie o cerere de adresă (ARP request) fie un răspuns la o cerere anterioară (ARP reply). 
+În funcție de tipul de pachet ARP, programul va răspunde corespunzător sau va actualiza tabela ARP cu informații noi despre adresele IP și MAC ale dispozitivelor din rețea.
+    Dacă pachetul primit este un pachet IPv4, programul va verifica mai întâi dacă suma de control a antetului IP este corectă.
+Dacă aceasta este corectă, va analiza adresa destinație a pachetului pentru a determina ruta optimă către destinație. 
+Pentru a face acest lucru, va căuta în tabela de rutare și va alege cea mai specifică intrare care corespunde adresei destinație a pachetului.
+Dacă nu găsește o rută validă, va genera și va trimite un pachet ICMP pentru a raporta o eroare de rețea.
+Dacă ruta este găsită, programul va verifica dacă are deja adresa MAC corespunzătoare destinației în tabela ARP. Dacă nu, va trimite o cerere ARP pentru a o obține. 
+În timp ce așteaptă răspunsul ARP, va ține pachetele destinate acelei destinații într-o coadă. 
+Odată ce primește adresa MAC corespunzătoare, va actualiza header-ul Ethernet al pachetului și îl va trimite către destinație pe interfața corespunzătoare.
+
+
+De asemnea subcerintele pe care le.am rezolvat sunt toate pe care trebuia sa le rezolvam.
